@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -8,13 +9,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-        <nav className="flex item-center justify-between bg-slate-400 rounded-lg p-5">
-          <a href="" className="float-left">
-            Back
-          </a>
-          <a href="" className="float-right">
+        <nav className="flex item-center justify-between bg-slate-400 rounded-b-md p-5">
+          <Link href="/dashboard/">Dashboard</Link>
+
+          <Link href="" className="float-right">
             Profile
-          </a>
+          </Link>
         </nav>
         {children}
       </body>

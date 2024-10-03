@@ -11,13 +11,16 @@ export default function Accordion({ title, content, showOptions }: Acronym) {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <div>
-        <div onClick={() => setIsActive(!isActive)}>
-          <div>
-            {showOptions && <input type="checkbox" />}
-            {title}
+      <div className="flex-grow">
+        <div className="flex items-center justify-between">
+          {showOptions && <input type="checkbox" className="" />}
+          <p className="float-left text-black font-bold">{title}</p>
+          <p
+            className="float-right hover:cursor-pointer"
+            onClick={() => setIsActive(!isActive)}
+          >
             {isActive ? "-" : "+"}
-          </div>
+          </p>
         </div>
         {isActive && <div>{content}</div>}
       </div>

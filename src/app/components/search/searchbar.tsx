@@ -1,7 +1,7 @@
 export default function Searchbar() {
   return (
     <input
-      className="flex-auto border-spacing-1 text-black rounded-sm"
+      className="text-black rounded-full text-center"
       name="airport"
       type="text"
       placeholder="Airport"

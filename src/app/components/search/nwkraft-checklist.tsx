@@ -1,6 +1,10 @@
 import Accordion from "@/app/components/common/accordion";
 
-export default function NwkraftChecklist() {
+type showOptions = {
+  showOptions: boolean;
+};
+
+export default function NwkraftChecklist({ showOptions }: showOptions) {
   const nwkraft = [
     {
       id: 1,
@@ -48,14 +52,14 @@ export default function NwkraftChecklist() {
 
   return (
     <>
-      <div className="bg-zinc-600 p-6">
-        <ul className="text-left">
+      <div className="flex p-6">
+        <ul className="grow text-left">
           {nwkraft.map((item) => (
-            <li className="p-2 m-2 bg-gray-400 rounded-lg" key={item.id}>
+            <li className="grow p-2 m-2 bg-gray-400 rounded-lg" key={item.id}>
               <Accordion
                 title={item.acronym}
                 content={item.description}
-                showOptions={false}
+                showOptions={showOptions}
               />
             </li>
           ))}
