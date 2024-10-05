@@ -1,6 +1,6 @@
 import NwkraftChecklist from "../../components/search/nwkraft-checklist";
 import Searchbar from "../../components/search/searchbar";
-import { searchForm } from "@/app/components/search/submitData";
+import { SubmitData } from "@/app/components/search/submit-data";
 
 export default function Search() {
   const nwkraftProp = {
@@ -10,7 +10,7 @@ export default function Search() {
   return (
     <>
       <div className="flex flex-col p-5 m-9 bg-neutral-200 rounded-2xl">
-        <form className="" action={searchForm}>
+        <form className="" action={SubmitData}>
           <div className="grid justify-items-center">
             <Searchbar />
             <NwkraftChecklist {...nwkraftProp} />
