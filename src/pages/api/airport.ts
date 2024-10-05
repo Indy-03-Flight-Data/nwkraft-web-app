@@ -10,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const result = await pool.query(
-      'SELECT elevation_ft, ident, name, type, latitude_deg, longitude_deg, municipality, iso_region FROM airports WHERE code = $1',
+      'SELECT elevation_ft, ident, name, type, latitude_deg, longitude_deg, municipality, iso_region FROM airports WHERE Ident = $1',
       [code]
     );
     res.status(200).json(result.rows[0]);

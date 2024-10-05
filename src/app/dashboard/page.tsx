@@ -1,14 +1,12 @@
 import Link from "next/link";
 
+import Autocomplete from "../components/search/autocomplete";
+
 export default function Page() {
   return (
     <div>
-      <div>
-        <Link href="/dashboard/search">
-          <button className="bg-white text-black font-semibold p-3 m-2 rounded-lg">
-            Add New NWKRAFT
-          </button>
-        </Link>
+      <div className="grid justify-items-center m-52">
+        <Autocomplete/>
       </div>
       <div></div>
     </div>

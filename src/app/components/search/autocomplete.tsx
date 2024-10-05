@@ -52,13 +52,17 @@ export default function Autocomplete() {
    * @param {AirportSuggestion} item - The selected suggestion item.
    */
   const handleSelect = (item: AirportSuggestion) => {
-    router.push(`/airport/${item.code}`); // Navigate to the airport detail page
+    //router.push(`/airport/${item.code}`);  Navigate to the airport detail page
+
+    
+
     setInputValue(''); // Clear input after selection
     setSuggestions([]); // Clear suggestions after selection
   };
 
   return (
     <div className="relative">
+      
       <input
         className="text-black rounded-full text-center"
         name="airport"
@@ -67,13 +71,14 @@ export default function Autocomplete() {
         onChange={handleChange} // Set up input change handler
         placeholder="Airport" // Placeholder text
       />
+
       {suggestions.length > 0 && (
         <ul className="absolute z-10 mt-1 bg-white border rounded">
           {suggestions.map((item) => (
             <li
               key={item.code} // Unique key for each suggestion
               onClick={() => handleSelect(item)} // Set up click handler
-              className="cursor-pointer p-2 hover:bg-gray-200" // Styling for suggestion items
+              className="cursor-pointer p-2 hover:bg-gray-200 text-black" // Styling for suggestion items
             >
               {item.code} - {item.name} // Display suggestion
             </li>

@@ -69,8 +69,8 @@ export default function Checklist({ showOptions, airportInfo }: NwkraftChecklist
   return (
     <>
       {/* Section to display airport information */}
-      <div className="p-6 bg-gray-200 rounded-lg mb-4">
-        <h2 className="text-lg font-bold">Airport Information</h2>
+      <div className="p-6 bg-gray-200 rounded-lg mb-4 text-black">
+        <h2 className="text-lg font-bold ">Airport Information</h2>
         <p><strong>Name:</strong> {airportInfo.name}</p>
         <p><strong>Identifier:</strong> {airportInfo.ident}</p>
         <p><strong>Type:</strong> {airportInfo.type}</p>
