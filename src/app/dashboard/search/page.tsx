@@ -1,5 +1,7 @@
-import NwkraftChecklist from "../../components/search/nwkraft-checklist";
-import Searchbar from "../../components/search/searchbar";
+"use client";
+
+import Checklist from "../../components/search/checklist";
+import Autocomplete from "../../components/search/autocomplete";
 
 export default function Search() {
   const nwkraftProp = {
@@ -12,9 +14,18 @@ export default function Search() {
         <form className="" action="">
           <div className="grow">
             <div className="grid justify-items-center">
-              <Searchbar />
+              <Autocomplete />
             </div>
-            <NwkraftChecklist {...nwkraftProp} />
+            <Checklist airportInfo={{
+              elevation_ft: 0,
+              ident: "",
+              name: "",
+              type: "",
+              latitude_deg: 0,
+              longitude_deg: 0,
+              municipality: "",
+              iso_region: ""
+            }} {...nwkraftProp} />
             <div className="grid justify-items-center">
               <input
                 type="submit"
