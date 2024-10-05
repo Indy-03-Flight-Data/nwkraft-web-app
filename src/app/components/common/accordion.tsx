@@ -13,7 +13,9 @@ export default function Accordion({ title, content, showOptions }: Acronym) {
     <>
       <div className="flex-grow">
         <div className="flex items-center justify-between">
-          {showOptions && <input type="checkbox" className="" />}
+          {showOptions && (
+            <input type="checkbox" id={title} name={title} className="hover:cursor-pointer" />
+          )}
           <p className="float-left text-black font-bold">{title}</p>
           <p
             className="float-right hover:cursor-pointer"
