@@ -53,7 +53,7 @@ export default function Autocomplete() {
    */
   const handleSelect = (item: AirportSuggestion) => {
     //router.push(`/airport/${item.code}`);  Navigate to the airport detail page
-
+    
     
 
     setInputValue(''); // Clear input after selection
