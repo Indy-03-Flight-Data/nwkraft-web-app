@@ -1,3 +1,5 @@
 export default function Result() {
-  return <div></div>;
+  return (
+    <div></div>
+  );
 }
