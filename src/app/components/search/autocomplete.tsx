@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 // Define a type for the suggestion item
 interface AirportSuggestion {
-  code: string; // Airport code (e.g., "LAX")
+  ident: string; // Airport code (e.g., "LAX")
   name: string; // Airport name (e.g., "Los Angeles International Airport")
 }
 
@@ -53,9 +53,9 @@ export default function Autocomplete() {
    */
   const handleSelect = (item: AirportSuggestion) => {
     //router.push(`/airport/${item.code}`);  Navigate to the airport detail page
+    const url = '/dashboard/search/' + item.ident;
+    router.push(url);
     
-    
-
     setInputValue(''); // Clear input after selection
     setSuggestions([]); // Clear suggestions after selection
   };
@@ -76,11 +76,11 @@ export default function Autocomplete() {
         <ul className="absolute z-10 mt-1 bg-white border rounded">
           {suggestions.map((item) => (
             <li
-              key={item.code} // Unique key for each suggestion
+              key={item.ident} // Unique key for each suggestion
               onClick={() => handleSelect(item)} // Set up click handler
               className="cursor-pointer p-2 hover:bg-gray-200 text-black" // Styling for suggestion items
             >
-              {item.code} - {item.name} // Display suggestion
+              {item.ident} - {item.name} // Display suggestion
             </li>
           ))}
         </ul>

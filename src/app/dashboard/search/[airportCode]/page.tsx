@@ -1,12 +1,16 @@
-"use client";
+import Checklist from "@/app/components/search/checklist";
+import Autocomplete from "@/app/components/search/autocomplete";
 
-import Checklist from "../../components/search/checklist";
-import Autocomplete from "../../components/search/autocomplete";
-
-export default function Search() {
+export default async function Search({
+  params,
+}: {
+  params: { airportCode: string };
+}) {
   const nwkraftProp = {
     showOptions: true,
   };
+  const airportCode = params.airportCode;
+  console.log(airportCode);
 
   return (
     <>
@@ -16,19 +20,7 @@ export default function Search() {
         </div>
         <form className="" action="">
           <div className="grow">
-            <Checklist
-              airportInfo={{
-                elevation_ft: 0,
-                ident: "",
-                name: "",
-                type: "",
-                latitude_deg: 0,
-                longitude_deg: 0,
-                municipality: "",
-                iso_region: "",
-              }}
-              {...nwkraftProp}
-            />
+            <Checklist airportCode={airportCode} {...nwkraftProp} />
             <div className="grid justify-items-center">
               <input
                 type="submit"
