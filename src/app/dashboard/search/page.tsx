@@ -1,5 +1,3 @@
-"use client";
-
 import Checklist from "../../components/search/checklist";
 import Autocomplete from "../../components/search/autocomplete";
 
@@ -10,22 +8,14 @@ export default function Search() {
 
   return (
     <>
-      <div className="flex flex-col p-5 m-9 bg-neutral-200 rounded-2xl">
+      <div className="flex flex-col p-5 m-9 bg-zinc-800 rounded-2xl">
+        <div className="grid justify-items-center">
+          <Autocomplete />
+        </div>
         <form className="" action="">
           <div className="grow">
-            <div className="grid justify-items-center">
-              <Autocomplete />
-            </div>
-            <Checklist airportInfo={{
-              elevation_ft: 0,
-              ident: "",
-              name: "",
-              type: "",
-              latitude_deg: 0,
-              longitude_deg: 0,
-              municipality: "",
-              iso_region: ""
-            }} {...nwkraftProp} />
+            <Checklist {...nwkraftProp}
+            />
             <div className="grid justify-items-center">
               <input
                 type="submit"

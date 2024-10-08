@@ -8,7 +8,6 @@ export default function Page() {
       <div className="grid justify-items-center m-52">
         <Autocomplete/>
       </div>
-      <div></div>
     </div>
   );
 }

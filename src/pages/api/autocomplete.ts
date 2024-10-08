@@ -18,8 +18,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    pool.connect();
-
     const result = await pool.query(
       "SELECT Ident, name FROM airports WHERE Ident ILIKE $1 LIMIT 10",
       [`%${query}%`]
