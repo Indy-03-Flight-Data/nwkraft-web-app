@@ -9,8 +9,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-        <nav className="flex item-center justify-between bg-slate-400 rounded-b-md p-5">
-          <Link href="/dashboard/">Dashboard</Link>
+        <nav className="flex items-center-center m-2 px-10 py-5 justify-between bg-inherit rounded-b-md ">
+          <Link href="/dashboard/" className="">Dashboard</Link>
 
           <Link href="" className="float-right">
             Profile
