@@ -1,6 +1,7 @@
 "use server";
 
-type AirportInfo = {
+//AirportInfo definition, returned by API/Airport
+interface AirportInfo {
   elevation_ft: number;
   ident: string;
   name: string;
@@ -9,19 +10,33 @@ type AirportInfo = {
   longitude_deg: number;
   municipality: string;
   iso_region: string;
-};
+}
 
-export default async function AirportInfo({ airportCode }: any) {
-  let res = await fetch("http://localhost:3000/api/airport/" + airportCode);
-  let airportInfo: any = res.json;
+//server action to retrieve the airport information.
+async function GetAirportInfo({
+  airportCode,
+}: {
+  airportCode: string;
+}): Promise<AirportInfo> {
+  let res = await fetch(`http://localhost:3000/api/airport/${airportCode}`);
+  const airportInfo: AirportInfo = await res.json();
+
+  return airportInfo;
+}
+
+//component to be rendered and passed to UI
+export default async function AirportInfo({
+  airportCode,
+}: {
+  airportCode: string;
+}) {
+  //does not render until airport info is returned
+  const airportInfo: AirportInfo = await GetAirportInfo({ airportCode });
 
   return (
-    <div className="p-6 bg-gray-200 rounded-lg mb-4 text-black">
-      <h2 className="text-lg font-bold ">Airport Information</h2>
-      <p>
-        <strong>Name:</strong> {airportInfo.name}
-      </p>
-      <p>
+    <div className="p-6  rounded-lg mb-4 text-black">
+      <p className="text-2xl font-bold">{airportInfo.name}</p>
+      <p id="ident">
         <strong>Identifier:</strong> {airportInfo.ident}
       </p>
       <p>

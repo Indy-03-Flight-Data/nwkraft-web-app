@@ -1,5 +1,3 @@
-"use client";
-
 import Checklist from "../../components/search/checklist";
 import Autocomplete from "../../components/search/autocomplete";
 
@@ -16,18 +14,7 @@ export default function Search() {
         </div>
         <form className="" action="">
           <div className="grow">
-            <Checklist
-              airportInfo={{
-                elevation_ft: 0,
-                ident: "",
-                name: "",
-                type: "",
-                latitude_deg: 0,
-                longitude_deg: 0,
-                municipality: "",
-                iso_region: "",
-              }}
-              {...nwkraftProp}
+            <Checklist {...nwkraftProp}
             />
             <div className="grid justify-items-center">
               <input

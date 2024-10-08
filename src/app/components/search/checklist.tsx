@@ -1,28 +1,14 @@
-"use client";
-
 import Accordion from "@/app/components/common/accordion";
 import AirportInfo from "@/app/components/common/airport-info";
 
-// Define the type for the airport information
-// type AirportInfo = {
-//   elevation_ft: number;
-//   ident: string;
-//   name: string;
-//   type: string;
-//   latitude_deg: number;
-//   longitude_deg: number;
-//   municipality: string;
-//   iso_region: string;
-// };
-
-// Define props type for NwkraftChecklist
+// Define props type for NwkraftChecklist, showOptions allow checkboxes to show for form.
 type NwkraftChecklistProps = {
   showOptions: boolean;
-  airportCode: string
-  // airportInfo: AirportInfo; // New prop for airport information
 };
 
-export default function Checklist({ showOptions, airportCode }: NwkraftChecklistProps) {
+export default async function Checklist({
+  showOptions,
+}: NwkraftChecklistProps) {
   const nwkraft = [
     {
       id: 1,
@@ -68,22 +54,10 @@ export default function Checklist({ showOptions, airportCode }: NwkraftChecklist
     },
   ];
 
+
   return (
     <>
-      <AirportInfo airportCode={airportCode}/>
-      {/* Section to display airport information
-      <div className="p-6 bg-gray-200 rounded-lg mb-4 text-black">
-        <h2 className="text-lg font-bold ">Airport Information</h2>
-        <p><strong>Name:</strong> {airportInfo.name}</p>
-        <p><strong>Identifier:</strong> {airportInfo.ident}</p>
-        <p><strong>Type:</strong> {airportInfo.type}</p>
-        <p><strong>Elevation (ft):</strong> {airportInfo.elevation_ft}</p>
-        <p><strong>Latitude:</strong> {airportInfo.latitude_deg}</p>
-        <p><strong>Longitude:</strong> {airportInfo.longitude_deg}</p>
-        <p><strong>Municipality:</strong> {airportInfo.municipality}</p>
-        <p><strong>ISO Region:</strong> {airportInfo.iso_region}</p>
-      </div> */}
-
+      
       {/* NWKRAFT checklist section */}
       <div className="flex p-6">
         <ul className="grow text-left">

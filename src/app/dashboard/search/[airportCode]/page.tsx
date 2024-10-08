@@ -1,5 +1,7 @@
 import Checklist from "@/app/components/search/checklist";
 import Autocomplete from "@/app/components/search/autocomplete";
+import AirportInfo from "@/app/components/common/airport-info";
+import { SubmitData } from "@/app/components/search/submit-data";
 
 export default async function Search({
   params,
@@ -10,7 +12,7 @@ export default async function Search({
     showOptions: true,
   };
   const airportCode = params.airportCode;
-  console.log(airportCode);
+
 
   return (
     <>
@@ -18,9 +20,10 @@ export default async function Search({
         <div className="grid justify-items-center">
           <Autocomplete />
         </div>
-        <form className="" action="">
+        <form className="" action={SubmitData}>
           <div className="grow">
-            <Checklist airportCode={airportCode} {...nwkraftProp} />
+            <AirportInfo airportCode={airportCode} />
+            <Checklist {...{ airportCode, showOptions: true }} />
             <div className="grid justify-items-center">
               <input
                 type="submit"
