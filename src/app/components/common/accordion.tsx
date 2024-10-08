@@ -16,7 +16,7 @@ export default function Accordion({ title, content, showOptions }: Acronym) {
           {showOptions && (
             <input type="checkbox" id={title} name={title} className="hover:cursor-pointer" />
           )}
-          <p className="float-left text-black font-bold">{title}</p>
+          <p className="float-left text-white font-bold">{title}</p>
           <p
             className="float-right hover:cursor-pointer"
             onClick={() => setIsActive(!isActive)}
