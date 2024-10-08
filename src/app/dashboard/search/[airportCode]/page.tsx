@@ -13,24 +13,25 @@ export default async function Search({
   };
   const airportCode = params.airportCode;
 
-
   return (
     <>
-      <div className="flex flex-col p-5 m-9 bg-neutral-200 rounded-2xl">
+      <div className="flex flex-col p-5 m-9 bg-zinc-800 rounded-2xl">
         <div className="grid justify-items-center">
           <Autocomplete />
         </div>
         <form className="" action={SubmitData}>
-          <div className="grow">
-            <AirportInfo airportCode={airportCode} />
-            <Checklist {...{ airportCode, showOptions: true }} />
-            <div className="grid justify-items-center">
-              <input
-                type="submit"
-                value="submit"
-                className="rounded-full py-2 px-4 font-bold hover:text-green-700 bg-white text-black"
-              />
+          <div className="grid grid-cols-4">
+            <div className="grid col-span-2">
+              <AirportInfo airportCode={airportCode} />
             </div>
+            <div className="grid col-span-2">
+              <Checklist {...{ airportCode, showOptions: true }} />
+            </div>
+            <input
+              type="submit"
+              value="submit"
+              className="grid col-start-2 col-span-2 rounded-full py-2 px-4 font-bold hover:text-green-700 bg-white text-black hover:cursor-pointer"
+            />
           </div>
         </form>
       </div>

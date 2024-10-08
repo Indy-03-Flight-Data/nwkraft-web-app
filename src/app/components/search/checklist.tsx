@@ -62,7 +62,7 @@ export default async function Checklist({
       <div className="flex p-6">
         <ul className="grow text-left">
           {nwkraft.map((item) => (
-            <li className="grow p-2 m-2 bg-gray-400 rounded-lg" key={item.id}>
+            <li className="grow p-2 m-2 bg-neutral-900 rounded-lg" key={item.id}>
               <Accordion
                 title={item.acronym}
                 content={item.description}

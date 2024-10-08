@@ -34,11 +34,12 @@ export default async function AirportInfo({
   const airportInfo: AirportInfo = await GetAirportInfo({ airportCode });
 
   return (
-    <div className="p-6  rounded-lg mb-4 text-black">
-      <p className="text-2xl font-bold">{airportInfo.name}</p>
-      <p id="ident">
+    <div className="p-8  rounded-lg mb-4 text-center">
+      <p className="text-5xl font-bold text-white">{airportInfo.name}</p>
+      <label id="ident">
         <strong>Identifier:</strong> {airportInfo.ident}
-      </p>
+      </label>
+      <input type="hidden" id="ident" name="ident" value={airportInfo.ident}/>
       <p>
         <strong>Type:</strong> {airportInfo.type}
       </p>

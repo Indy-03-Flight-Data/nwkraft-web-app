@@ -8,7 +8,7 @@ export default function Search() {
 
   return (
     <>
-      <div className="flex flex-col p-5 m-9 bg-neutral-200 rounded-2xl">
+      <div className="flex flex-col p-5 m-9 bg-zinc-800 rounded-2xl">
         <div className="grid justify-items-center">
           <Autocomplete />
         </div>
