@@ -19,8 +19,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const result = await pool.query(
-      "SELECT Ident, name FROM airports WHERE Ident ILIKE $1 LIMIT 10",
-      [`%${query}%`]
+      "SELECT Ident, name FROM airports WHERE Ident ILIKE $1 OR name ILIKE $2 LIMIT 10",
+  [`%${query}%`, `%${query}%`]
     );
     res.status(200).json(result.rows);
   } catch (error) {
