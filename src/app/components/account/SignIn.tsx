@@ -2,8 +2,11 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import { redirect } from 'next/dist/server/api-utils';
+import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
+  const router = useRouter();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -21,6 +24,10 @@ export default function SignIn() {
 
       setMessage(response.data.message); // Handle success message
       // Handle successful sign-in (e.g., redirect or store user session)
+      if (response.status===200){
+        const url = '/dashboard/';
+        router.push(url);
+      }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setMessage(error.response?.data.message || 'An error occurred during sign-in');

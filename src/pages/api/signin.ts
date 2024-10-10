@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Pool } from 'pg';
-import bcrypt from 'bcryptjs'; // Make sure to install bcrypt
+//import bcrypt from 'bcryptjs'; // Make sure to install bcrypt
 
 const pool = new Pool({
   connectionString: process.env.Database_URL,
@@ -15,8 +15,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       const user = await pool.query('SELECT * FROM accounts WHERE username = $1', [username]);
+      //console.log(user);
 
-      if (user.rows.length === 0 || !(await bcrypt.compare(password, user.rows[0].password))) {
+      if (user.rows.length === 0 || !(user.rows[0].password === password)) {
         return res.status(401).json({ message: 'Invalid username or password' });
       }
 

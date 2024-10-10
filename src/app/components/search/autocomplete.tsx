@@ -80,7 +80,7 @@ export default function Autocomplete() {
               onClick={() => handleSelect(item)} // Set up click handler
               className="cursor-pointer p-2 hover:bg-gray-200 text-black" // Styling for suggestion items
             >
-              {item.ident} - {item.name} // Display suggestion
+              {item.ident} - {item.name}
             </li>
           ))}
         </ul>
