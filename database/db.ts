@@ -1,12 +1,12 @@
 //database/db.ts
 import { Pool } from 'pg';
 
-const connectionString = process.env.DATABASE_URL
+const connectionString = process.env.Database_URL
 
 const pool = new Pool({
     connectionString,
     ssl: {
-        rejectUnauthorized: true,
+        rejectUnauthorized: false,
     },
 });
 
