@@ -4,21 +4,31 @@ type AirportCode = {
   airportCode: string;
 };
 
-export default async function GetNotams({ airportCode }: AirportCode) {
+export async function GetNotams({
+  airportCode,
+}: AirportCode): Promise<AirportCode> {
   let res = await fetch(
-    "https://external-api.faa.gov/notamapi/v1/notams",
+    `https://external-api.faa.gov/notamapi/v1/notams?location=${airportCode}&`,
     {
       method: "GET",
       headers: {
-        client_id: "",
-        client_secret: "",
+        client_id: process.env.notams_client_id || "",
+        client_secret: process.env.notams_client_secret || "",
       },
     }
   );
 
-  let notams = await res.json();
+  let all_notams = await res.json();
 
-  let result = JSON.stringify(notams.items[0]);
+  return all_notams.items[all_notams.items.length - 1].properties.coreNOTAMData;
+}
 
-  return(<div>{result}</div>);
+export default async function Notams({ airportCode }: AirportCode) {
+  const notams: any = await GetNotams({ airportCode });
+
+  return (
+    <>
+      <div>{notams}</div>
+    </>
+  );
 }
