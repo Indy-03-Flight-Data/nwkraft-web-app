@@ -1,7 +1,7 @@
-"use server";
+"use client";
 
 import { GetNotams } from "@/app/components/results/get-notams";
-import { stringify } from "querystring";
+import { useRouter } from "next/navigation";
 
 type ResultsWanted = {
   ident?: string;
@@ -14,18 +14,18 @@ type ResultsWanted = {
   "Takeoff and landing distances"?: string;
 };
 
+
 type AirportCode = {
   airportCode: String;
 };
 //data sent from client to server in airport checklist
 export async function SubmitData(formData: FormData) {
   const rawFormData = Object.fromEntries(formData.entries());
-
+  let router = useRouter();
   let resultsWanted: ResultsWanted = rawFormData;
-
-  if (!(resultsWanted.ident === null)) {
+  console.log(rawFormData);
+  if (!(resultsWanted.NOTAMs === "on")) {
     let airportCode = resultsWanted.ident;
     let notams = await GetNotams({ airportCode });
-    console.log(notams);
   }
 }
