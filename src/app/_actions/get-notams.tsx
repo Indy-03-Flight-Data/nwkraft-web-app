@@ -1,15 +1,6 @@
 "use server";
 
-type AirportCode = {
-  airportCode: string;
-};
-
-type Notam = {
-  effectiveStart: string;
-  effectiveEnd: string;
-  text: string;
-  lastUpdated: string;
-};
+import { Notam, AirportCode } from "@/app/_lib/definitions";
 
 export async function GetNotams({
   airportCode,
@@ -25,6 +16,8 @@ export async function GetNotams({
     }
   );
 
+  console.log("Fetched NOTAMS");
+
   let notams = await res.json();
 
   let items = notams.items;
@@ -35,6 +28,7 @@ export async function GetNotams({
   //adds to notams_items array to be returned as a prop
   for (const key in items) {
     let notam_data: Notam = {
+      id: items[key].properties.coreNOTAMData.notam.id,
       effectiveStart: items[key].properties.coreNOTAMData.notam.effectiveStart,
       effectiveEnd: items[key].properties.coreNOTAMData.notam.effectiveEnd,
       text: items[key].properties.coreNOTAMData.notam.text,
@@ -46,23 +40,3 @@ export async function GetNotams({
   return notams_items as Notam[];
 }
 
-export default async function Notams({ airportCode }: AirportCode) {
-  const notams: Notam[] = await GetNotams({ airportCode });
-
-  return (
-    <>
-      <div>
-        <ul className="grow text-left">
-          {notams.map((item) => (
-            <li>
-              <p>{item.effectiveStart}</p>
-              <p>{item.effectiveEnd}</p>
-              <p>{item.text}</p>
-              <p>{item.lastUpdated}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
-  );
-}
