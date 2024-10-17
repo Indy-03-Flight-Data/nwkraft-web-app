@@ -6,9 +6,9 @@ import axios from 'axios';
 export default function SignUp() {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [specialKey, setSpecialKey] = useState<string>('');
+  const [specialKey, setSpecialKey] = useState<string>(''); // Include specialKey
   const [message, setMessage] = useState<string>('');
-  const [loading, setLoading] = useState<boolean>(false); // Optional: Loading state
+  const [loading, setLoading] = useState<boolean>(false); // Loading state
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export default function SignUp() {
       const response = await axios.post('/api/signup', {
         username,
         password,
-        specialKey,
+        specialKey, // Send specialKey with the request
       });
 
       setMessage(response.data.message); // Handle success message
@@ -34,14 +34,16 @@ export default function SignUp() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Sign Up</h1>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center p-8 rounded-lg shadow-md w-96">
+      <h1 className="text-2xl mb-4 text-center">Sign Up</h1>
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
+        disabled={loading}
+        className="mb-4 p-2 border rounded w-full text-black"
       />
       <input
         type="password"
@@ -49,6 +51,8 @@ export default function SignUp() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        disabled={loading}
+        className="mb-4 p-2 border rounded w-full text-black"
       />
       <input
         type="text"
@@ -56,9 +60,17 @@ export default function SignUp() {
         value={specialKey}
         onChange={(e) => setSpecialKey(e.target.value)}
         required
+        disabled={loading}
+        className="mb-4 p-2 border rounded w-full text-black"
       />
-      <button type="submit" disabled={loading}>Create Account</button>
-      {message && <p>{message}</p>}
+      <button 
+        type="submit" 
+        disabled={loading} 
+        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full"
+      >
+        {loading ? 'Loading...' : 'Create Account'}
+      </button>
+      {message && <p className="text-red-500 mt-2">{message}</p>} {/* Error message styling */}
     </form>
   );
 }

@@ -2,6 +2,7 @@
 const config = {
   plugins: {
     tailwindcss: {},
+    autoprefixer: {}, // Add Autoprefixer to ensure cross-browser compatibility
   },
 };
 
