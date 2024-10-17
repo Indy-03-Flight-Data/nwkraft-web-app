@@ -18,7 +18,7 @@ export default function DynamicAirportForm({
 
   return (
     <>
-      <div className="flex flex-col p-5 m-9 bg-zinc-800 rounded-2xl">
+
         <form className="" action={handleSubmit}>
           <div className="grid justify-items-center">
             <input type="hidden" id="ident" name="ident" value={airportCode} />
@@ -32,7 +32,7 @@ export default function DynamicAirportForm({
             />
           </div>
         </form>
-      </div>
+
       {showResults && children}
     </>
   );

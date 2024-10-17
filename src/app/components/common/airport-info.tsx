@@ -25,34 +25,36 @@ export default async function AirportInfo({
   const airportInfo: AirportInfoType = await GetAirportInfo({ airportCode });
 
   return (
-    <div>
-      <div className="p-8  rounded-lg mb-4 text-center">
-        <p className="text-5xl font-bold text-white">{airportInfo.name}</p>
-        <label id="ident">
-          <strong>Identifier:</strong> {airportInfo.ident}
-        </label>
-        <p>
-          <strong>Type:</strong> {airportInfo.type}
+    <div className="p-8  rounded-lg mb-4 text-center">
+      <div className="flow-root align-baseline">
+        <p className=" float-left text-5xl font-bold text-white">
+          {airportInfo.name}
         </p>
-        <p>
-          <strong>Elevation (ft):</strong> {airportInfo.elevation_ft}
-        </p>
-        <p>
-          <strong>Latitude:</strong> {airportInfo.latitude_deg}
-        </p>
-        <p>
-          <strong>Longitude:</strong> {airportInfo.longitude_deg}
-        </p>
-        <p>
-          <strong>Municipality:</strong> {airportInfo.municipality}
-        </p>
-        <p>
-          <strong>ISO Region:</strong> {airportInfo.iso_region}
-        </p>
+        <div className="float-right px-5">
+          <FavoritesOption airportCode={airportCode} />
+        </div>
       </div>
-      <div>
-        <FavoritesOption airportCode={airportCode}/>
-      </div>
+      <label id="ident">
+        <strong>Identifier:</strong> {airportInfo.ident}
+      </label>
+      <p>
+        <strong>Type:</strong> {airportInfo.type}
+      </p>
+      <p>
+        <strong>Elevation (ft):</strong> {airportInfo.elevation_ft}
+      </p>
+      <p>
+        <strong>Latitude:</strong> {airportInfo.latitude_deg}
+      </p>
+      <p>
+        <strong>Longitude:</strong> {airportInfo.longitude_deg}
+      </p>
+      <p>
+        <strong>Municipality:</strong> {airportInfo.municipality}
+      </p>
+      <p>
+        <strong>ISO Region:</strong> {airportInfo.iso_region}
+      </p>
     </div>
   );
 }

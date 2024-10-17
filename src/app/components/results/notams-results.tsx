@@ -9,6 +9,7 @@ export default async function NotamsResults({ airportCode }: AirportCode) {
     <div>
       {notams.map((item) => (
         <div key={item.id} className="bg-zinc-800 p-5 m-5">
+          <p>NOTAM ID: {item.id}</p>
           <p>Effective Start Date: {item.effectiveStart}</p>
           <p>Effective End Date: {item.effectiveEnd}</p>
           <p>Description: {item.text}</p>
