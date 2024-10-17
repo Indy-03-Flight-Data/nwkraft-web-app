@@ -1,14 +1,13 @@
 import Accordion from "@/app/components/common/accordion";
 import AirportInfo from "@/app/components/common/airport-info";
 
-// Define props type for NwkraftChecklist, showOptions allow checkboxes to show for form.
-type NwkraftChecklistProps = {
-  showOptions: boolean;
-};
+import { AirportCode } from "@/app/_lib/definitions";
 
 export default async function Checklist({
-  showOptions,
-}: NwkraftChecklistProps) {
+  showOptions
+}: {
+  showOptions: boolean;
+}) {
   const nwkraft = [
     {
       id: 1,
@@ -54,15 +53,16 @@ export default async function Checklist({
     },
   ];
 
-
   return (
     <>
-      
       {/* NWKRAFT checklist section */}
       <div className="flex p-6">
         <ul className="grow text-left">
           {nwkraft.map((item) => (
-            <li className="grow p-2 m-2 bg-neutral-900 rounded-lg" key={item.id}>
+            <li
+              className="grow p-2 m-2 bg-neutral-900 rounded-lg"
+              key={item.id}
+            >
               <Accordion
                 title={item.acronym}
                 content={item.description}
