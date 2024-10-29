@@ -1,7 +1,7 @@
 "use server";
 
 import { AirportInfo as AirportInfoType } from "@/app/_lib/definitions";
-import FavoritesOption from "./FavoriteOption";
+import FavoritesOption from "../favorites/FavoriteOption";
 
 //server action to retrieve the airport information.
 async function GetAirportInfo({
@@ -25,13 +25,15 @@ export default async function AirportInfo({
   const airportInfo: AirportInfoType = await GetAirportInfo({ airportCode });
 
   return (
-    <div className="p-8  rounded-lg mb-4 text-center">
-      <div className="flow-root align-baseline">
-        <p className=" float-left text-5xl font-bold text-white">
-          {airportInfo.name}
-        </p>
-        <div className="float-right px-5">
+    <div className="p-8 rounded-lg mb-4 text-center">
+      <div className="flex items-center">
+        <div className="justify-start">
           <FavoritesOption airportCode={airportCode} />
+        </div>
+        <div className="">
+          <p className="text-5xl font-bold text-white">
+            {airportInfo.name}
+          </p>
         </div>
       </div>
       <label id="ident">

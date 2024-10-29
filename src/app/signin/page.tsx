@@ -30,12 +30,12 @@ export default function SignIn() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900">
+    <div className="flex items-center justify-center min-h-screen">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col items-center p-8 rounded-lg shadow-md w-96 bg-white"
       >
-        <h1 className="text-2xl mb-4 text-center">Sign In</h1>
+        <h1 className="text-2xl text-black mb-4 text-center">Sign In</h1>
         <input
           type="text"
           placeholder="Username"

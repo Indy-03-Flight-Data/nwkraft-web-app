@@ -2,8 +2,8 @@
 
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import FavoriteAirports from "@/app/components/favorites/FavoriteAirports"; 
-import Autocomplete from "@/app/components/search/autocomplete"; 
+import FavoriteAirports from "@/app/components/favorites/FavoriteAirports";
+import Autocomplete from "@/app/components/search/autocomplete";
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
@@ -23,7 +23,7 @@ export default function Dashboard() {
         </h1>
 
         <button
-          onClick={() => signOut({ callbackUrl: "/signin" })}
+          onClick={() => signOut({ callbackUrl: "/" })}
           className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition duration-300 text-sm"
         >
           Sign Out
@@ -42,4 +42,3 @@ export default function Dashboard() {
     </div>
   );
 }
-

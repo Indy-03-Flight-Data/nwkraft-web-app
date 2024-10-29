@@ -65,7 +65,7 @@ export default function FavoritesOption({
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
-    <div className="grid justify-center hover:cursor-pointer">
+    <div className="hover:cursor-pointer min-w-12 min-h-12">
       <div onClick={handleOnClick}>
         {favoriteStatus ? (
           <Image src={star_fill} width={50} height={50} alt="favorite" />
