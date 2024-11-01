@@ -43,8 +43,7 @@ export type ResultsWanted = {
   };
 
 export type WeatherLocation = {
-  latitude: number;
-  longitude: number;
+  airportCode: string;
   hourly: string;
 }
 

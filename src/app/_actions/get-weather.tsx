@@ -1,11 +1,21 @@
 "use server";
 
-import { Weather, WeatherLocation } from "@/app/_lib/definitions";
+import { Weather, WeatherLocation, AirportInfo as AirportInfoType } from "@/app/_lib/definitions";
+
+async function fetchAirportCoordinates(airportCode: string): Promise<{ latitude: number; longitude: number }> {
+    const res = await fetch(`http://localhost:3000/api/airport/${airportCode}`);
+    const airportInfo: AirportInfoType = await res.json();
+    return {
+      latitude: airportInfo.latitude_deg,
+      longitude: airportInfo.longitude_deg,
+    };
+}
 
 export async function GetWeather({
-    latitude, longitude, hourly,
+    airportCode, hourly,
 }: WeatherLocation): Promise<Weather[]> {
-  let res = await fetch(
+    let { latitude, longitude } = await fetchAirportCoordinates(airportCode);
+    let res = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=${hourly},surface_pressure,geopotential_height_1000hPa`,
     //`https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.42&hourly=temperature_2m,surface_pressure,geopotential_height_1000hPa`,
     {

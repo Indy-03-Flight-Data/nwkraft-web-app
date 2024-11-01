@@ -3,8 +3,8 @@
 import { GetWeather } from "@/app/_actions/get-weather";
 import { WeatherLocation } from "@/app/_lib/definitions";
 
-export default async function WeatherResults({ latitude, longitude, hourly }: WeatherLocation) {
-  const weather = await GetWeather({ latitude, longitude, hourly });
+export default async function WeatherResults({ airportCode, hourly }: WeatherLocation) {
+  const weather = await GetWeather({ airportCode, hourly });
   return (
     <div>
       {weather.map((hourly) => (

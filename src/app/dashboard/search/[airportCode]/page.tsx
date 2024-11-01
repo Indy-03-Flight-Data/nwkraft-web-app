@@ -45,8 +45,7 @@ export default function Search({
             <div>
               <DynamicAirportForm airportCode={airportCode}>
                 <NotamsResults airportCode={airportCode} />
-                <WeatherResults latitude={52.52}
-                longitude={13.42}
+                <WeatherResults airportCode={airportCode}
                 hourly={"temperature_2m"} />
               </DynamicAirportForm>
             </div>
