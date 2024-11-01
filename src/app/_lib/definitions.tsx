@@ -52,5 +52,10 @@ export type Weather = {
   temperature: number;
   surfacePressure: number;
   hPaHeight1000: number;
+  precipitationChance: number;
+  precipitationActual: number;
+  cloudCover: number;
+  visibility: number;
+  windSpeed10: number;
 }
 
