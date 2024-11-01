@@ -16,7 +16,7 @@ export async function GetNotams({
     }
   );
 
-  console.log("Fetched NOTAMS");
+  //console.log("Fetched NOTAMS");
 
   let notams = await res.json();
 

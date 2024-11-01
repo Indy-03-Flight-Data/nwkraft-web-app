@@ -6,6 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import back_arrow from "@/app/public/arrow_back.png";
 
+import WeatherResults from "@/app/components/results/weather-results";
+
 export default function Search({
   params,
 }: {
@@ -43,6 +45,9 @@ export default function Search({
             <div>
               <DynamicAirportForm airportCode={airportCode}>
                 <NotamsResults airportCode={airportCode} />
+                <WeatherResults latitude={52.52}
+                longitude={13.42}
+                hourly={"temperature_2m"} />
               </DynamicAirportForm>
             </div>
           </div>

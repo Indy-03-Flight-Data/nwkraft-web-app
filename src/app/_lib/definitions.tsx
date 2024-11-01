@@ -42,4 +42,16 @@ export type ResultsWanted = {
     "Takeoff and landing distances"?: string;
   };
 
+export type WeatherLocation = {
+  latitude: number;
+  longitude: number;
+  hourly: string;
+}
+
+export type Weather = {
+  time: string;
+  temperature: number;
+  surfacePressure: number;
+  hPaHeight1000: number;
+}
 
